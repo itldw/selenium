@@ -1,5 +1,9 @@
+
+
 from selenium import  webdriver
 from time import  sleep
+import unittest
+import HTMLTestRunner
 
 option = webdriver.ChromeOptions()
 option.add_argument('headless') # 浏览器不提供可视化页面
@@ -22,5 +26,5 @@ li=driver.find_element_by_xpath("//li[@class='liClass'][11]")
 li.click()
 print('title：', driver.title)
 print('执行完毕：！！！')
-
+ 
 driver.quit()
