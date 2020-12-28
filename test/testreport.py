@@ -9,13 +9,17 @@ class add(unittest.TestCase):
         option.add_argument("--no-sandbox")
         self.driver=webdriver.Chrome(options=option)
 
-    def testBaidu(self):
+    def test_baidu(self):
+        '''
+        显示名称
+        '''
         self.driver.get("https://www.baidu.com")
         self.driver.find_element_by_id("kw").clear()
         self.driver.find_element_by_id("kw").send_keys(u"python")
         self.driver.find_element_by_id("su").click()
         time.sleep(5)
-        assert  u"python" in self.driver.page_source,"页面不存在关键字"
+        self.assertIn(u"python",self.driver.page_source)
+
 
     def tearDown(self):
         self.driver.quit()
